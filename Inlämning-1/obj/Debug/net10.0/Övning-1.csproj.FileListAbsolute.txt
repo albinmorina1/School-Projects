@@ -1,0 +1,14 @@
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\bin\Debug\net10.0\Övning-1.exe
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\bin\Debug\net10.0\Övning-1.deps.json
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\bin\Debug\net10.0\Övning-1.runtimeconfig.json
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\bin\Debug\net10.0\Övning-1.dll
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\bin\Debug\net10.0\Övning-1.pdb
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\obj\Debug\net10.0\Övning-1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\obj\Debug\net10.0\Övning-1.AssemblyInfoInputs.cache
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\obj\Debug\net10.0\Övning-1.AssemblyInfo.cs
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\obj\Debug\net10.0\Övning-1.csproj.CoreCompileInputs.cache
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\obj\Debug\net10.0\Övning-1.dll
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\obj\Debug\net10.0\refint\Övning-1.dll
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\obj\Debug\net10.0\Övning-1.pdb
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\obj\Debug\net10.0\Övning-1.genruntimeconfig.cache
+C:\Users\Albin Morina\Desktop\Skola\Övningar\Övning-1\obj\Debug\net10.0\ref\Övning-1.dll
