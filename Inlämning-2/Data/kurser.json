@@ -3,14 +3,14 @@
     "Kursnummer": "WEB101",
     "Title": "Grundl\u00E4ggande Webbutveckling",
     "LangdDagar": 10,
-    "StartDatum": "2026-11-22T20:26:59.4636162+01:00",
-    "SlutDatum": "2026-12-02T20:26:59.4660884+01:00"
+    "StartDatum": "2026-11-22T21:40:11.5112707+01:00",
+    "SlutDatum": "2026-12-02T21:40:11.5134907+01:00"
   },
   {
     "Kursnummer": "MOB201",
     "Title": "Avancerad Mobilutveckling",
     "LangdDagar": 15,
-    "StartDatum": "2026-12-07T20:26:59.4661856+01:00",
-    "SlutDatum": "2026-12-22T20:26:59.4661863+01:00"
+    "StartDatum": "2026-12-07T21:40:11.5135812+01:00",
+    "SlutDatum": "2026-12-22T21:40:11.5135819+01:00"
   }
 ]
