@@ -1,0 +1,133 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:WestCoastEducation.Desktop.ViewModels"
+        x:Class="WestCoastEducation.Desktop.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="WestCoast Education - Administration"
+        Width="950" Height="650">
+
+    <Grid RowDefinitions="Auto, *">
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#1976D2" Padding="15">
+            <TextBlock Text="WestCoast Education Admin"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Foreground="White"/>
+        </Border>
+
+        <!-- Huvudinnehåll -->
+        <TabControl Grid.Row="1" Margin="10">
+            
+            <!-- Flik 1: Kurser -->
+            <TabItem Header="Kurser">
+                <Grid RowDefinitions="*, Auto, Auto" Margin="10">
+                    <DataGrid ItemsSource="{Binding Kurser}"
+                              SelectedItem="{Binding ValdKurs}"
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              Grid.Row="0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Kursnummer" Binding="{Binding Kursnummer}"/>
+                            <DataGridTextColumn Header="Titel" Binding="{Binding Title}"/>
+                            <DataGridTextColumn Header="Längd (Dagar)" Binding="{Binding LangdDagar}"/>
+                            <DataGridTextColumn Header="StartDatum" Binding="{Binding StartDatum, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}"/>
+                            <DataGridTextColumn Header="SlutDatum" Binding="{Binding SlutDatum, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Spacing="10" Margin="0,10,0,10">
+                        <Button Content="Uppdatera lista"
+                                Command="{Binding LaddaDataAsync}"
+                                Background="#1976D2"
+                                Foreground="White"/>
+                        <Button Content="Ta bort markerad kurs"
+                                Command="{Binding TaBortKursAsync}"
+                                Background="#D32F2F"
+                                Foreground="White"/>
+                    </StackPanel>
+
+                    <!-- Formulär för att uppdatera kurs -->
+                    <Border Grid.Row="2" Background="#F5F5F5" Padding="10" CornerRadius="5">
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Redigera markerad kurs:" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <TextBox Text="{Binding ValdKurs.Title, Mode=TwoWay}" Watermark="Titel" Width="200"/>
+                                <TextBox Text="{Binding ValdKurs.Kursnummer, Mode=TwoWay}" Watermark="Kursnummer" Width="120"/>
+                                <Button Content="Spara ändringar"
+                                        Command="{Binding UppdateraKursAsync}"
+                                        Background="#388E3C"
+                                        Foreground="White"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+
+            <!-- Flik 2: Studerande -->
+            <TabItem Header="Studerande">
+                <Grid RowDefinitions="*, Auto, Auto" Margin="10">
+                    <DataGrid ItemsSource="{Binding StuderandeLista}"
+                              SelectedItem="{Binding ValdStuderande}"
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              Grid.Row="0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Personnummer" Binding="{Binding Personnummer}"/>
+                            <DataGridTextColumn Header="E-post" Binding="{Binding Epost}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <!-- Formulär för studerande -->
+                    <Border Grid.Row="2" Background="#F5F5F5" Padding="10" Margin="0,10,0,0" CornerRadius="5">
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Redigera markerad student:" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <TextBox Text="{Binding ValdStuderande.Epost, Mode=TwoWay}" Watermark="E-post" Width="220"/>
+                                <TextBox Text="{Binding ValdStuderande.Personnummer, Mode=TwoWay}" Watermark="Personnummer" Width="140"/>
+                                <Button Content="Spara student"
+                                        Command="{Binding UppdateraStuderandeAsync}"
+                                        Background="#388E3C"
+                                        Foreground="White"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+
+            <!-- Flik 3: Lärare -->
+            <TabItem Header="Lärare">
+                <Grid RowDefinitions="*, Auto, Auto" Margin="10">
+                    <DataGrid ItemsSource="{Binding LarareLista}"
+                              SelectedItem="{Binding ValdLarare}"
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              Grid.Row="0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Personnummer" Binding="{Binding Personnummer}"/>
+                            <DataGridTextColumn Header="E-post" Binding="{Binding Epost}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <!-- Formulär för att uppdatera lärare -->
+                    <Border Grid.Row="2" Background="#F5F5F5" Padding="10" Margin="0,10,0,0" CornerRadius="5">
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Redigera markerad lärare:" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <TextBox Text="{Binding ValdLarare.Epost, Mode=TwoWay}" Watermark="E-post" Width="220"/>
+                                <TextBox Text="{Binding ValdLarare.Personnummer, Mode=TwoWay}" Watermark="Personnummer" Width="140"/>
+                                <Button Content="Spara lärare"
+                                        Command="{Binding UppdateraLarareAsync}"
+                                        Background="#388E3C"
+                                        Foreground="White"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+            
+        </TabControl>
+    </Grid>
+</Window>
