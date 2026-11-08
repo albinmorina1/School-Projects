@@ -1,0 +1,16 @@
+# Build & Output folders
+bin/
+obj/
+*.user
+
+# VS Code & IDE settings
+.vscode/
+.idea/
+
+# Secret/Local Configs
+appsettings.json
+!appsettings.example.json
+
+# OS files
+.DS_Store
+Thumbs.db
