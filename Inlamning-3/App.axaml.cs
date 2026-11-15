@@ -9,16 +9,22 @@ namespace WestCoastEducation.Desktop;
 
 public partial class App : Application
 {
-    public override void Initialize() => AvaloniaXamlLoader.Load(this);
+    public override void Initialize()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
 
     public override void OnFrameworkInitializationCompleted()
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            var db = new RestDbService(RestDbSettings.Load());
+            var settings = RestDbSettings.Load();
+            var kursService = new RestDbService(settings);
+            var personService = new RestDbService(settings);
+
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(db, db)
+                DataContext = new MainWindowViewModel(kursService, personService)
             };
         }
 

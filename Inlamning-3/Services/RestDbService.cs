@@ -16,6 +16,8 @@ public class RestDbService : IKursService, IPersonService
     {
         _client = new HttpClient();
         
+        Console.WriteLine($"[RestDbService] Laddad BaseUrl: '{settings.BaseUrl}' | Har ApiKey: {!string.IsNullOrEmpty(settings.ApiKey)}");
+
         if (!string.IsNullOrEmpty(settings.BaseUrl))
         {
             _client.BaseAddress = new Uri(settings.BaseUrl.EndsWith("/") ? settings.BaseUrl : settings.BaseUrl + "/");
@@ -27,7 +29,6 @@ public class RestDbService : IKursService, IPersonService
         }
     }
 
-    // Default-konstruktor om inga settings skickas in
     public RestDbService() : this(new RestDbSettings())
     {
     }
@@ -38,10 +39,12 @@ public class RestDbService : IKursService, IPersonService
         try
         {
             var result = await _client.GetFromJsonAsync<List<Kurs>>("kurser");
+            Console.WriteLine($"[RestDbService] Hämtade {result?.Count ?? 0} kurser.");
             return result ?? new List<Kurs>();
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine($"[FEL Kurser]: {ex.Message}");
             return new List<Kurs>();
         }
     }
@@ -91,10 +94,12 @@ public class RestDbService : IKursService, IPersonService
         try
         {
             var result = await _client.GetFromJsonAsync<List<Studerande>>("studerande");
+            Console.WriteLine($"[RestDbService] Hämtade {result?.Count ?? 0} studerande.");
             return result ?? new List<Studerande>();
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine($"[FEL Studerande]: {ex.Message}");
             return new List<Studerande>();
         }
     }
@@ -131,10 +136,12 @@ public class RestDbService : IKursService, IPersonService
         try
         {
             var result = await _client.GetFromJsonAsync<List<Larare>>("larare");
+            Console.WriteLine($"[RestDbService] Hämtade {result?.Count ?? 0} lärare.");
             return result ?? new List<Larare>();
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine($"[FEL Lärare]: {ex.Message}");
             return new List<Larare>();
         }
     }
